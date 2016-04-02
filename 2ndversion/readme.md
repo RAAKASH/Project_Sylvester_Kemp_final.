@@ -1,2 +1,2 @@
-#More aaccurate version
+#More accurate version
 <p> under construction</p>
