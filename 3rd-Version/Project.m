@@ -9,7 +9,7 @@
  image(Z);
  fprintf('Look at the displayed picture!!!!\n');
  fprintf('Note : The link lengths specified are the default lengths of the program!!!!\n');
- fprintf('Now specify link lenghts accordingly\n');
+ fprintf('Now specify link lenghts accordingly \n');
  x = input('Link 1:');
  y = input('Link 2:');
  z = input('Link 3,4,5:');
@@ -83,9 +83,15 @@ fprintf('A play back is being created\n');
 [M] = PlayBack( l1,l2,e2,a2 );
 numtimes=3;
 fps=25;
-movie(M,numtimes,fps);
+% movie(M,numtimes,fps);
 end
-%% Generating an .avi file for general purpose viewing
+%%  Finding Range of motion
+   q = find(e2(:,2) == max(e2(:,2)));
+   maxx = (- l2(2)*cos(a2(q,2)+pi/2)+l1(2)*cos(e2(q,2)+pi/2));
+   q = find(e2(:,2) == min(e2(:,2)));
+   minx = (- l2(2)*cos(a2(q,2)+pi/2)+l1(2)*cos(e2(q,2)+pi/2));
+
+%% Generating an .avi file, log file for general purpose viewing
 if (f~=0)
   v = VideoWriter('Sylvester_Kempe.avi','Uncompressed AVI');
   open(v);
@@ -93,9 +99,11 @@ if (f~=0)
   close(v);
   clc;
   fprintf('An avi file Sylvester_Kempe.avi has been generated ,check the folder that contains the zip extract');
-fileID = fopen('log.txt','w');
+ fileID = fopen('log.txt','w');
 fprintf(fileID,'\n%6s %6s %6s\n','link1','link2','link3');
 fprintf(fileID,'%6.2f %6.2f %6.2f\n',x,y,z);
+fprintf(fileID,'\n%6s %6s \n','MaxX','MinX');
+fprintf(fileID,'\n%6.2f %6.2f \n',maxx,minx);
 fclose(fileID);
 
 end
