@@ -27,13 +27,14 @@ f = 0;
 
 %% Main Program
  while(1)
-           
+        if(m~=1)   
        f=f+1;     
     
             if((i==m))
              
              if ((abs(B(i,2)-359)<=.1) && (abs(B(1,2)-1)<=.1))
              i=1;s=1;
+             i
              else
              s=-1;
              end
@@ -43,7 +44,7 @@ f = 0;
              c = c+1;
              s=1;
              end 
-             
+             i
              e  =  Pl( l1,l2,B(i,:),A(i,:));
 
     M(f) = getframe;
@@ -52,11 +53,15 @@ f = 0;
       break;
   end
   i = i + s;
-     
-
- end
          
-end
+        else
+            e  =  Pl( l1,l2,B(1,:),A(1,:));
+        M(1) = getframe;
+        break;
+        end
+ end
+ end
+
 
 
 
