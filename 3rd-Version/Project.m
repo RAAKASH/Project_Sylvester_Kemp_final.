@@ -12,7 +12,7 @@
  fprintf('Now specify link lenghts accordingly\n');
  x = input('Link 1:');
  y = input('Link 2:');
- z = input('Link 3:');
+ z = input('Link 3,4,5:');
  fprintf('Press Enter for finding data');
  pause;
  close all;
@@ -93,4 +93,9 @@ if (f~=0)
   close(v);
   clc;
   fprintf('An avi file Sylvester_Kempe.avi has been generated ,check the folder that contains the zip extract');
+fileID = fopen('log.txt','w');
+fprintf(fileID,'\n%6s %6s %6s\n','link1','link2','link3');
+fprintf(fileID,'%6.2f %6.2f %6.2f\n',x,y,z);
+fclose(fileID);
+
 end
