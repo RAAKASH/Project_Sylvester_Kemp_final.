@@ -98,12 +98,15 @@ if (f~=0)
   writeVideo(v,M);
   close(v);
   clc;
-  fprintf('An avi file Sylvester_Kempe.avi has been generated ,check the folder that contains the zip extract');
+  fprintf('An avi file Sylvester_Kempe.avi has been generated ,check the folder that contains the zip extract\n');
+  fprintf(' A log file has been created ,check the folder that contains the zip extract');
  fileID = fopen('log.txt','w');
 fprintf(fileID,'\n%6s %6s %6s\n','link1','link2','link3');
 fprintf(fileID,'%6.2f %6.2f %6.2f\n',x,y,z);
-fprintf(fileID,'\n%6s %6s \n','MaxX','MinX');
-fprintf(fileID,'\n%6.2f %6.2f \n',maxx,minx);
+fprintf(fileID,'\n%20s %20s \n','Max X coordinate','Min X coordinate');
+fprintf(fileID,'\n     %6.2f             %6.2f \n',maxx,minx);
+fprintf(fileID,'\n%20s %20s \n','Max Theta2','Min Theta2');
+fprintf(fileID,'\n     %6.2f             %6.2f \n',max(e2(:,2))*180/pi,min(e2(:,2))*180/pi);
 fclose(fileID);
 
 end
