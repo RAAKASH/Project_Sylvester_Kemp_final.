@@ -33,7 +33,7 @@ g = max(l1+l2);
 h1 = plot(x,y,'r-o',x1,y1,'b-o',x2,y2,'g-o',x3,y3,'y-o',x4,y4,'b-o',x5,y5,'r-o');
 
 title('Sylvester Kempe  mechanism Animation');
-
+set(gca,'xtick',[],'ytick',[]);
 set(h1,'LineWidth',3)
 axis equal;
 axis([-g g  -g/1.2 g*2]);
