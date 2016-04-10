@@ -5,9 +5,9 @@
  %%  Getting data from user
  clc;
  close all;
- %  figure('name','Start Window');
  figH = figure;
  set(figH,'Name','Start Window','NumberTitle','off');
+ 
  H = imread('Sylvester kempe_0000.jpg');
  image(H);
  set(gca,'xtick',[],'ytick',[]);
@@ -36,7 +36,6 @@
   l2 = [z;x;y;z]; 
 %    l1 = [81;100;48;81]; % Main data
 %    l2 = [81;48;100;81]; % Main data
-%    l1 = [100;48;81;81];
 %    l1 = [8;10;5;8];     % Test data
 %    l2 = [8;5;10;8];     % Test data
 %    l1 = [4;10;3;4];     % Test data
@@ -64,8 +63,15 @@ b1 =b1*pi/180;
   
 %% Processing 
       [~,~,I2  ]= kempepro( A2,y2 );
-      [k1,k2]    =  Kempepostpro( I2 );
+      
+      k2 = length(I2);
+      [k1,k2]    =  Kempepostpro( I2(1:k2) );
+    while(1)
     
+    break;
+    end
+      
+      
      if(I2(1)~=0)
      f=1;  
      clc;
@@ -109,6 +115,8 @@ fps=25;
 close all;
 fprintf('\n Play back created!!!!!!!!!!!!!!!!!!!\n');
 fprintf('\nMovie being played!!!!!!!!!!!!!!!!!!!\n');
+figH = figure;
+set(figH,'Name','Movie','NumberTitle','off');
 movie(M,numtimes,fps);
 end
 %%  Finding Range of motion
@@ -122,7 +130,7 @@ end
 
 if (f~=0)
     close all;
- fprintf('Generating Video file, Log file ,Xl datasheet');
+     fprintf('Generating Video file, Log file ,Xl datasheet');
     v = VideoWriter('Sylvester_Kempe.avi','Uncompressed AVI');
   open(v);
   writeVideo(v,M);
