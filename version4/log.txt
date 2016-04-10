@@ -1,0 +1,11 @@
+
+ link1  link2  link3
+  4.00  11.24   8.00
+
+    Max X coordinate     Min X coordinate 
+
+     -10.76              -3.70 
+
+          Max Theta2           Min Theta2 
+
+      75.09              40.94 
