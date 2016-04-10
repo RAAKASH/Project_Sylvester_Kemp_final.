@@ -64,12 +64,9 @@ b1 =b1*pi/180;
 %% Processing 
       [~,~,I2  ]= kempepro( A2,y2 );
       
-      k2 = length(I2);
-      [k1,k2]    =  Kempepostpro( I2(1:k2) );
-    while(1)
+      
+      [k1,k2]    =  Kempepostpro( I2 );
     
-    break;
-    end
       
       
      if(I2(1)~=0)
