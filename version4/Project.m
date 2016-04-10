@@ -5,8 +5,12 @@
  %%  Getting data from user
  clc;
  close all;
+ %  figure('name','Start Window');
+ figH = figure;
+ set(figH,'Name','Start Window','NumberTitle','off');
  H = imread('Sylvester kempe_0000.jpg');
  image(H);
+ set(gca,'xtick',[],'ytick',[]);
  title('Sylvester kempe -Straight line mechanism');
  
  fprintf('\n \n \nPROJECT - Sylvester_Kempe straight line mechanism\n');
@@ -106,7 +110,6 @@ close all;
 fprintf('\n Play back created!!!!!!!!!!!!!!!!!!!\n');
 fprintf('\nMovie being played!!!!!!!!!!!!!!!!!!!\n');
 movie(M,numtimes,fps);
-
 end
 %%  Finding Range of motion
    q = find(e2(:,2) == max(e2(:,2)));
