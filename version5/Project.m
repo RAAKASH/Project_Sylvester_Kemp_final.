@@ -139,13 +139,13 @@ fprintf('\nMovie being played!!!!!!!!!!!!!!!!!!!\n');
 figH = figure;
 set(figH,'Name','Movie','NumberTitle','off');
 movie(M,numtimes,fps);
-end
+
 %%  Finding Range of motion
    q = find(e2(:,2) == max(e2(:,2)));
    maxx = (- l2(2)*cos(a2(q,2)+pi/2)+l1(2)*cos(e2(q,2)+pi/2));
    q = find(e2(:,2) == min(e2(:,2)));
    minx = (- l2(2)*cos(a2(q,2)+pi/2)+l1(2)*cos(e2(q,2)+pi/2));
-
+end
 %% Generating an .avi file, log file, xls file for general purpose viewing
 
 
